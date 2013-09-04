@@ -113,8 +113,10 @@ class graphite (
   $gr_django_db_password        = '',
   $gr_django_db_host            = '',
   $gr_django_db_port            = '',
-  $secretKey                    = 'UNSAFE_DEFAULT'
+  $secretKey                    = 'UNSAFE_DEFAULT',
+  $gr_storage_dir               = '/opt/graphite/storage'
 ) {
+	$gr_local_data_dir            = "${gr_storage_dir}/whisper"
 
 	class { 'graphite::install': notify => Class['graphite::config'], }
 
