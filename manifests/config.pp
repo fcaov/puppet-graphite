@@ -8,6 +8,8 @@
 #
 class graphite::config inherits graphite::params {
 
+	include graphite
+
 	anchor { 'graphite::config::begin': }
 	anchor { 'graphite::config::end': }
 
@@ -76,7 +78,7 @@ class graphite::config inherits graphite::params {
 	# change access permissions for apache
 
 	exec { 'Chown graphite for apache':
-		command     => "chown -R ${::graphite::params::web_user}:${::graphite::params::web_user} /opt/graphite/storage/",
+		command     => "mkdir -p ${graphite::gr_storage_dir}/log/webapp && chown -R ${::graphite::params::web_user}:${::graphite::params::web_user} ${graphite::gr_storage_dir}",
 		cwd         => '/opt/graphite/',
 		refreshonly => true,
 		require     => Anchor['graphite::install::end'],
