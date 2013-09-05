@@ -115,6 +115,7 @@ class graphite (
   $gr_django_db_port            = '',
   $secretKey                    = 'UNSAFE_DEFAULT',
   $gr_storage_dir               = '/opt/graphite/storage'
+  $gr_wsgi_socket_prefix        = '/var/run/apache2/wsgi'
 ) {
 	$gr_local_data_dir            = "${gr_storage_dir}/whisper"
 
