@@ -39,7 +39,7 @@ class graphite::install::redhat {
 			cwd     => "${::graphite::params::build_dir}",
 			require => Anchor['graphitepkg::end'];
 		'Install twisted':
-			command => 'easy_install twisted',
+			command => 'easy_install twisted==13.1',
 			cwd     => "${::graphite::params::build_dir}",
 			require => Anchor['graphitepkg::end'];
 		'Install txamqp':
