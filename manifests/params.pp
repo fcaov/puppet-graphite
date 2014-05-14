@@ -56,7 +56,7 @@ class graphite::params {
 
 	$graphitepkgs = $::osfamily ? {
 		debian => ["python-cairo","python-twisted","python-django","python-django-tagging","python-ldap","python-memcache","python-sqlite","python-simplejson"],
-		redhat => ["pycairo", "Django14", "python-ldap", "python-memcached", "python-sqlite2",  "bitmap", "bitmap-fonts-compat", "python-devel", "python-crypto", "pyOpenSSL", "gcc", "python-zope-filesystem", "python-zope-interface",  "gcc-c++", "zlib-static", "MySQL-python"],
+		redhat => ["pycairo",  "python-ldap", "python-memcached", "python-sqlite2",  "bitmap", "bitmap-fonts-compat", "python-devel", "python-crypto", "pyOpenSSL", "gcc", "python-zope-filesystem", "python-zope-interface",  "gcc-c++", "zlib-static", "MySQL-python"],
 	}
 
 }

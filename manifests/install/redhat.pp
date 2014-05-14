@@ -35,7 +35,11 @@ class graphite::install::redhat {
 
 	exec {
 		'Install django-tagging':
-			command => 'easy_install django-tagging',
+			command => 'pip install django-tagging==0.3.1',
+			cwd     => "${::graphite::params::build_dir}",
+			require => Anchor['graphitepkg::end'];
+		'Install django':
+			command => 'pip install django==1.3.1',
 			cwd     => "${::graphite::params::build_dir}",
 			require => Anchor['graphitepkg::end'];
 		'Install twisted':
