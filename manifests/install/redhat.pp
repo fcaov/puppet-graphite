@@ -56,15 +56,15 @@ class graphite::install::redhat {
 
 	exec {
 		"Download and untar ${::graphite::params::graphiteVersion}":
-			command => "curl -s -L ${::graphite::params::webapp_dl_url} | tar xz",
+			command => "[ -f ${::graphite::params::webapp_dl_loc} ] && tar xzf ${::graphite::params::webapp_dl_loc} || curl -s -L ${::graphite::params::webapp_dl_url} | tar xz",
 			creates => "${::graphite::params::build_dir}/${::graphite::params::graphiteVersion}",
 			cwd     => "${::graphite::params::build_dir}";
 		"Download and untar ${::graphite::params::carbonVersion}":
-			command => "curl -s -L ${::graphite::params::carbon_dl_url} | tar xz",
+			command => "[ -f ${::graphite::params::carbon_dl_loc} ] && tar xzf ${::graphite::params::carbon_dl_loc} || curl -s -L ${::graphite::params::carbon_dl_url} | tar xz",
 			creates => "${::graphite::params::build_dir}/${::graphite::params::carbonVersion}",
 			cwd     => "${::graphite::params::build_dir}";
 		"Download and untar ${::graphite::params::whisperVersion}":
-			command => "curl -s -L ${::graphite::params::whisper_dl_url} | tar xz",
+			command => "[ -f ${::graphite::params::whisper_dl_loc} ] && tar xzf ${::graphite::params::whisper_dl_loc} || curl -s -L ${::graphite::params::whisper_dl_url} | tar xz",
 			creates => "${::graphite::params::build_dir}/${::graphite::params::whisperVersion}",
 			cwd     => "${::graphite::params::build_dir}";
 	}

@@ -8,19 +8,20 @@
 #
 class graphite::params {
 	$build_dir = '/usr/local/src/'
-
+	$graphite_var_folder = "/var/esxcloud/graphite"
 	$graphiteVersion = 'graphite-web-0.9.10'
 	$carbonVersion   = 'carbon-0.9.10'
 	$whisperVersion  = 'whisper-0.9.10'
 
+
 	$whisper_dl_url = "http://launchpad.net/graphite/0.9/0.9.10/+download/${::graphite::params::whisperVersion}.tar.gz"
-	$whisper_dl_loc = "${build_dir}/whisper.tar.gz"
+	$whisper_dl_loc = "${graphite_var_folder}/${whisperVersion}.tar.gz"
 
 	$webapp_dl_url = "http://launchpad.net/graphite/0.9/0.9.10/+download/${::graphite::params::graphiteVersion}.tar.gz"
-	$webapp_dl_loc = "${build_dir}/graphite-web.tar.gz"
+	$webapp_dl_loc = "${graphite_var_folder}/${graphiteVersion}.tar.gz"
 
 	$carbon_dl_url = "http://launchpad.net/graphite/0.9/0.9.10/+download/${::graphite::params::carbonVersion}.tar.gz"
-	$carbon_dl_loc = "${build_dir}/carbon.tar.gz"
+	$carbon_dl_loc = "${graphite_var_folder}/${carbonVersion}.tar.gz"
 
 	$install_prefix = '/opt/'
 
@@ -58,5 +59,4 @@ class graphite::params {
 		debian => ["python-cairo","python-twisted","python-django","python-django-tagging","python-ldap","python-memcache","python-sqlite","python-simplejson"],
 		redhat => ["pycairo",  "python-ldap", "python-memcached", "python-sqlite2",  "bitmap", "bitmap-fonts-compat", "python-devel", "python-crypto", "pyOpenSSL", "gcc", "python-zope-filesystem", "python-zope-interface",  "gcc-c++", "zlib-static", "MySQL-python"],
 	}
-
 }
